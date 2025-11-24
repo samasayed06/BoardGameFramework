@@ -2,6 +2,7 @@
 #include "BoardGame_Classes.h"
 #include "XO_Classes.h"
 #include "Numerical_Classes.h"
+#include "misere_Classes.h"   // Misère Tic Tac Toe
 
 using namespace std;
 
@@ -12,6 +13,7 @@ int main() {
         cout << "\n=== FCAI Board Games Menu ===\n";
         cout << "1. X-O Game\n";
         cout << "2. Numerical Tic Tac Toe\n";
+        cout << "3. Misère Tic Tac Toe (Inverse XO)\n";
         cout << "0. Exit\nChoose: ";
 
         int ch;
@@ -41,6 +43,22 @@ int main() {
             delete players[0];
             delete players[1];
             delete[] players;
+        }
+
+        else if (ch == 3) {
+            UI<char>* ui = new Misere_UI();
+            Board<char>* board = new Misere_Board();
+            Player<char>** players = ui->setup_players();
+            GameManager<char> gm(board, players, ui);
+            gm.run();
+            delete board;
+            delete players[0];
+            delete players[1];
+            delete[] players;
+        }
+
+        else {
+            cout << "Invalid choice. Try again.\n";
         }
     }
 
