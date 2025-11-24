@@ -1,3 +1,5 @@
+/*
+
 {
     "version": "0.2.0",
     "configurations": [
@@ -37,4 +39,23 @@
         }
     ]
 }
-
+*/
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run Numerical/XO Game",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/game.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "gdb",
+            "preLaunchTask": "build game"
+        }
+    ]
+}

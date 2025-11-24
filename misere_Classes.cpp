@@ -2,13 +2,63 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
-
-using std::cout;
-using std::cin;
-using std::endl;
+using namespace std;
 
 /* ---------------- Misere_Board ---------------- */
-// كل الدوال موجودة في الهيدر
+Misere_Board::Misere_Board() : Board<char>(3,3) {
+    for(int i=0;i<3;i++)
+        for(int j=0;j<3;j++)
+            board[i][j] = ' ';
+}
+
+Misere_Board::~Misere_Board() {}
+
+bool Misere_Board::update_board(Move<char>* move) {
+    int r = move->get_x();
+    int c = move->get_y();
+    if (r<0 || r>=3 || c<0 || c>=3 || board[r][c]!=' ')
+        return false;
+    board[r][c] = move->get_symbol();
+    n_moves++;
+    return true;
+}
+
+bool Misere_Board::has_three_in_row(char mark) {
+    for(int i=0;i<3;i++)
+        if(board[i][0]==mark && board[i][1]==mark && board[i][2]==mark)
+            return true;
+
+    for(int j=0;j<3;j++)
+        if(board[0][j]==mark && board[1][j]==mark && board[2][j]==mark)
+            return true;
+
+    if(board[0][0]==mark && board[1][1]==mark && board[2][2]==mark)
+        return true;
+
+    if(board[0][2]==mark && board[1][1]==mark && board[2][0]==mark)
+        return true;
+
+    return false;
+}
+
+bool Misere_Board::is_win(Player<char>* p) {
+    char mark = p->get_symbol();
+    char opponent = (mark=='X')?'O':'X';
+    return has_three_in_row(opponent);
+}
+
+bool Misere_Board::is_lose(Player<char>* p) {
+    char mark = p->get_symbol();
+    return has_three_in_row(mark);
+}
+
+bool Misere_Board::is_draw(Player<char>* p) {
+    return n_moves>=9 && !has_three_in_row('X') && !has_three_in_row('O');
+}
+
+bool Misere_Board::game_is_over(Player<char>* p) {
+    return is_lose(p) || is_win(p) || is_draw(p);
+}
 
 /* ---------------- Misere_Human ---------------- */
 Misere_Human::Misere_Human(string name, char symbol) : Player<char>(name, symbol, PlayerType::HUMAN) {}
