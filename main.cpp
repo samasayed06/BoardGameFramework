@@ -1,5 +1,3 @@
-
-
 #include <iostream>
 #include "BoardGame_Classes.h"
 #include "XO_Classes.h"
@@ -9,7 +7,7 @@
 #include "SUS_UI.h"
 #include "TTT5_Classes.h"
 #include "Obstacles_Classes.h"
-
+#include "InfinityTTT.h"   // ← أضفنا الهيدر الجديد
 
 using namespace std;
 
@@ -24,6 +22,7 @@ int main() {
         cout << "4. SUS Game\n";
         cout << "5. 5x5 Tic Tac Toe\n";
         cout << "6. Obstacles Tic Tac Toe (6x6)\n";
+        cout << "7. Infinity Tic Tac Toe\n";  // ← الخيار الجديد
         cout << "0. Exit\nChoose: ";
 
         int ch;
@@ -37,10 +36,7 @@ int main() {
             Player<char>** players = ui->setup_players();
             GameManager<char> gm(board, players, ui);
             gm.run();
-            delete board;
-            delete players[0];
-            delete players[1];
-            delete[] players;
+            delete board; delete players[0]; delete players[1]; delete[] players;
         }
 
         else if (ch == 2) {
@@ -49,10 +45,7 @@ int main() {
             Player<int>** players = ui->setup_players();
             GameManager<int> gm(board, players, ui);
             gm.run();
-            delete board;
-            delete players[0];
-            delete players[1];
-            delete[] players;
+            delete board; delete players[0]; delete players[1]; delete[] players;
         }
 
         else if (ch == 3) {
@@ -61,10 +54,7 @@ int main() {
             Player<char>** players = ui->setup_players();
             GameManager<char> gm(board, players, ui);
             gm.run();
-            delete board;
-            delete players[0];
-            delete players[1];
-            delete[] players;
+            delete board; delete players[0]; delete players[1]; delete[] players;
         }
 
         else if (ch == 4) {
@@ -73,10 +63,7 @@ int main() {
             Player<char>** players = ui->setup_players();
             GameManager<char> gm(board, players, ui);
             gm.run();
-            delete board;
-            delete players[0];
-            delete players[1];
-            delete[] players;
+            delete board; delete players[0]; delete players[1]; delete[] players;
         }
 
         else if (ch == 5) {
@@ -85,22 +72,22 @@ int main() {
             Player<char>** players = ui->setup_players();
             GameManager<char> gm(board, players, ui);
             gm.run();
-            delete board;
-            delete players[0];
-            delete players[1];
-            delete[] players;
+            delete board; delete players[0]; delete players[1]; delete[] players;
         }
+
         else if (ch == 6) {
-           UI<char>* ui = new Obstacles_UI();
-           Board<char>* board = new Obstacles_Board();
-           Player<char>** players = ui->setup_players();
-           GameManager<char> gm(board, players, ui);
+            UI<char>* ui = new Obstacles_UI();
+            Board<char>* board = new Obstacles_Board();
+            Player<char>** players = ui->setup_players();
+            GameManager<char> gm(board, players, ui);
             gm.run();
-            delete board;
-            delete players[0];
-            delete players[1];
-            delete[] players;
-      }
+            delete board; delete players[0]; delete players[1]; delete[] players;
+        }
+
+        else if (ch == 7) {
+            InfinityTTT game;
+            game.play();     // ← تشغيل اللعبة مباشرة بدون UI أو Board
+        }
 
         else {
             cout << "Invalid choice. Try again.\n";

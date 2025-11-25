@@ -1,3 +1,5 @@
+//--------------------------------------- IMPLEMENTATION
+
 #include <iostream>
 #include <iomanip>
 #include <cctype>  // for toupper()
@@ -91,4 +93,3 @@ Move<char>* XO_UI::get_move(Player<char>* player) {
     }
     return new Move<char>(x, y, player->get_symbol());
 }
-
