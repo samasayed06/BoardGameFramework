@@ -22,7 +22,7 @@ int main() {
         cout << "4. SUS Game\n";
         cout << "5. 5x5 Tic Tac Toe\n";
         cout << "6. Obstacles Tic Tac Toe (6x6)\n";
-        cout << "7. Infinity Tic Tac Toe\n";  // ← الخيار الجديد
+        cout << "7. Infinity Tic Tac Toe\n";   
         cout << "8. 4x4 Tic Tac Toe\n";
         cout << "0. Exit\nChoose: ";
 
