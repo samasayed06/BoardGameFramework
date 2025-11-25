@@ -28,6 +28,9 @@ class Misere_Computer : public Player<char> {
 public:
     Misere_Computer(string name, char symbol);
     Move<char>* get_move(Player<char>*);
+
+    // note: we do not add new public API; smart behavior is selected
+    // via the player's name suffix "[AI:Smart]".
 };
 
 class Misere_UI : public UI<char> {
@@ -38,4 +41,3 @@ public:
 };
 
 #endif
-

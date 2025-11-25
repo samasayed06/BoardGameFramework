@@ -7,6 +7,7 @@
 #include "TTT5_Classes.h"
 #include "Obstacles_Classes.h"
 #include "InfinityTTT_Classes.h"
+#include "TicTacToe4x4.h"
 
 using namespace std;
 
@@ -22,6 +23,7 @@ int main() {
         cout << "5. 5x5 Tic Tac Toe\n";
         cout << "6. Obstacles Tic Tac Toe (6x6)\n";
         cout << "7. Infinity Tic Tac Toe\n";  // ← الخيار الجديد
+        cout << "8. 4x4 Tic Tac Toe\n";
         cout << "0. Exit\nChoose: ";
 
         int ch;
@@ -92,6 +94,18 @@ int main() {
             delete board;
             delete players[0]; delete players[1]; delete[] players;
         }
+
+        else if (ch == 8) {
+            UI<char>* ui = new TicTacToe4x4_UI<char>();
+            Board<char>* board = new TicTacToe4x4_Board<char>();
+            Player<char>** players = ui->setup_players();
+            GameManager<char> gm(board, players, ui);
+            gm.run();
+            delete board;
+            delete players[0]; delete players[1];
+            delete[] players;
+        }
+
 
         else {
             cout << "Invalid choice. Try again.\n";
