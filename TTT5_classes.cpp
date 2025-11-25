@@ -102,7 +102,21 @@ TTT5_UI::TTT5_UI() : UI<char>(3) {
 
 Move<char>* TTT5_UI::get_move(Player<char>* player) {
     int x, y;
+
+    // لو اللاعب كمبيوتر
+    if (player->get_type() == PlayerType::COMPUTER) {
+        do {
+            x = rand() % player->get_board_ptr()->get_rows();
+            y = rand() % player->get_board_ptr()->get_columns();
+        } while (player->get_board_ptr()->get_cell(x, y) != '-'); 
+
+        cout << "\n" << player->get_name() << " (Computer) played: (" << x << "," << y << ")\n";
+        return new Move<char>(x, y, player->get_symbol());
+    }
+
+    // لو اللاعب إنسان:
     cout << player->get_name() << " (" << player->get_symbol() << ") enter (row col): ";
     cin >> x >> y;
     return new Move<char>(x, y, player->get_symbol());
 }
+
