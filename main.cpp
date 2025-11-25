@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 #include "BoardGame_Classes.h"
 #include "XO_Classes.h"
 #include "Numerical_Classes.h"
@@ -7,7 +7,6 @@
 #include "TTT5_Classes.h"
 #include "Obstacles_Classes.h"
 #include "InfinityTTT_Classes.h"
-
 
 using namespace std;
 
@@ -58,16 +57,14 @@ int main() {
         }
 
         else if (ch == 4) {
-    UI<char>* ui = new SUS_UI();
-    Board<char>* board = new SUS_Board();
-    Player<char>** players = ui->setup_players();   // uses base setup calling create_player
-    GameManager<char> gm(board, players, ui);
-    gm.run();
-    delete board;
-    delete players[0];
-    delete players[1];
-    delete[] players;
-}
+            UI<char>* ui = new SUS_UI();
+            Board<char>* board = new SUS_Board();
+            Player<char>** players = ui->setup_players();
+            GameManager<char> gm(board, players, ui);
+            gm.run();
+            delete board;
+            delete players[0]; delete players[1]; delete[] players;
+        }
 
         else if (ch == 5) {
             UI<char>* ui = new TTT5_UI();
@@ -86,19 +83,15 @@ int main() {
             gm.run();
             delete board; delete players[0]; delete players[1]; delete[] players;
         }
-
-       else if (ch == 7) {
-    UI<char>* ui = new InfinityTTT_UI();
-    Board<char>* board = new InfinityTTT_Board();
-    Player<char>** players = ui->setup_players();   // يستخدم create_player الموجود في InfinityTTT_UI
-    GameManager<char> gm(board, players, ui);
-    gm.run();
-    delete board;
-    delete players[0];
-    delete players[1];
-    delete[] players;
-}
-
+        else if (ch == 7) {
+            UI<char>* ui = new InfinityTTT_UI();
+            Board<char>* board = new InfinityTTT_Board();
+            Player<char>** players = ui->setup_players();
+            GameManager<char> gm(board, players, ui);
+            gm.run();
+            delete board;
+            delete players[0]; delete players[1]; delete[] players;
+        }
 
         else {
             cout << "Invalid choice. Try again.\n";
