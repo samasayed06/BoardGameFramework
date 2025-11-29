@@ -1,5 +1,3 @@
-
-
 {
     "version": "2.0.0",
     "tasks": [
@@ -8,6 +6,9 @@
             "type": "shell",
             "command": "g++",
             "args": [
+                "-std=c++17",
+                "-Wall",
+
                 "main.cpp",
                 "XO_Classes.cpp",
                 "Numerical_Classes.cpp",
@@ -15,6 +16,9 @@
                 "SUS_Classes.cpp",
                 "TTT5_Classes.cpp",
                 "Obstacles_Classes.cpp",
+                "InfinityTTT_Classes.cpp",
+                "TicTacToe4x4.cpp",
+                 "DiamondTTT.cpp",
                 "-o",
                 "game.exe"
             ],

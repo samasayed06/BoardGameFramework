@@ -1,30 +1,8 @@
-/*
-
 {
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "(gdb) Attach",
-            "type": "cppdbg",
-            "request": "attach",
-            "program": "enter program name, for example ${workspaceFolder}/a.exe",
-            "MIMode": "gdb",
-            "miDebuggerPath": "/path/to/gdb",
-            "setupCommands": [
-                {
-                    "description": "Enable pretty-printing for gdb",
-                    "text": "-enable-pretty-printing",
-                    "ignoreFailures": true
-                },
-                {
-                    "description": "Set Disassembly Flavor to Intel",
-                    "text": "-gdb-set disassembly-flavor intel",
-                    "ignoreFailures": true
-                }
-            ]
-        },
-        {
-            "name": "Run Numerical/XO Game",
+            "name": "Run Game",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/game.exe",
@@ -32,29 +10,7 @@
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],
-            "externalConsole": false,
-            "MIMode": "gdb",
-            "miDebuggerPath": "gdb",
-            "preLaunchTask": "build game"
-        }
-    ]
-}
-*/
-{
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "Run Numerical/XO Game",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "${workspaceFolder}/game.exe",
-            "args": [],
-            "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
-            "environment": [],
-            "externalConsole": false,
-            "MIMode": "gdb",
-            "miDebuggerPath": "gdb",
+            "externalConsole": true,
             "preLaunchTask": "build game"
         }
     ]
