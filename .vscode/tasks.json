@@ -19,6 +19,7 @@
                 "InfinityTTT_Classes.cpp",
                 "TicTacToe4x4.cpp",
                  "DiamondTTT.cpp",
+                 "Pyramid.cpp",
                 "-o",
                 "game.exe"
             ],

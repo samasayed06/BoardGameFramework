@@ -10,6 +10,7 @@
 #include "InfinityTTT_Classes.h"
 #include "TicTacToe4x4.h"
 #include "DiamondTTT.h"
+#include "PyramidTTT.h"
 
 using namespace std;
 
@@ -27,6 +28,7 @@ int main() {
         cout << "7. Infinity Tic Tac Toe\n";   
         cout << "8. 4x4 Tic Tac Toe\n";
         cout << "9. Diamond Tic Tac Toe\n";
+        cout << "10. Pyramid Tic Tac Toe\n";
         cout << "0. Exit\nChoose: ";
         
         int ch;
@@ -109,6 +111,15 @@ int main() {
         else if (ch == 9) {
             UI<char>* ui = new DiamondTTT_UI();
             Board<char>* board = new DiamondTTT_Board();
+            Player<char>** players = ui->setup_players();
+            GameManager<char> gm(board, players, ui);
+            gm.run();
+            delete board; delete players[0]; delete players[1]; delete[] players;
+        }
+
+        else if (ch == 10) {
+            UI<char>* ui = new PyramidTTT_UI();
+            Board<char>* board = new PyramidTTT_Board();
             Player<char>** players = ui->setup_players();
             GameManager<char> gm(board, players, ui);
             gm.run();
