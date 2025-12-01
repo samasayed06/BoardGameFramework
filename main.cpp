@@ -12,6 +12,7 @@
 #include "DiamondTTT.h"
 #include "PyramidTTT.h"
 #include "UltimateTTT_Classes.h"
+#include "FourInARow_Classes.h"
 
 using namespace std;
 
@@ -30,6 +31,7 @@ int main() {
         cout << "8. 4x4 Tic Tac Toe\n";
         cout << "9. Diamond Tic Tac Toe\n";
         cout << "10. Pyramid Tic Tac Toe\n";
+        cout << "11. Four-in-a-row\n";
         cout << "12. Ultimate Tic Tac Toe (Bonus)\n";
 
         cout << "0. Exit\nChoose: ";
@@ -128,6 +130,18 @@ int main() {
             gm.run();
             delete board; delete players[0]; delete players[1]; delete[] players;
         }
+        else if (ch == 11) {
+            UI<char>* ui = new FourInARow_UI();
+            Board<char>* board = new FourInARow_Board();
+            Player<char>** players = ui->setup_players();
+            GameManager<char> gm(board, players, ui);
+            gm.run();
+            delete board;
+            delete players[0];
+            delete players[1];
+            delete[] players;
+        }
+
 
 
         else if (ch == 12) {
