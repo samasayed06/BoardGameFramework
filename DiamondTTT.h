@@ -18,6 +18,7 @@ public:
     bool game_is_over(Player<char>* p) override;
 
     bool lines_in_different_directions(char mark);
+    bool is_valid_cell(int r, int c) const;  // للتحقق من الخلايا الصالحة في الماسة
 
     // static helper لدعم Smart AI
     static bool lines_in_different_directions_on_matrix(const vector<vector<char>>& mat, char mark);
@@ -43,6 +44,7 @@ public:
     DiamondTTT_UI();
     Move<char>* get_move(Player<char>* p) override;
     Player<char>* create_player(string& name, char symbol, PlayerType type) override;
+    void display_board_matrix(const vector<vector<char>>& matrix) const override;
 };
 
 #endif
