@@ -8,7 +8,6 @@
             "args": [
                 "-std=c++17",
                 "-Wall",
-
                 "main.cpp",
                 "XO_Classes.cpp",
                 "Numerical_Classes.cpp",
@@ -22,6 +21,8 @@
                  "PyramidTTT.cpp",
                  "FourInARow_Classes.cpp",
                  "UltimateTTT_Classes.cpp",
+                 "WordTTT_Classes.cpp",
+                 
                 "-o",
                 "game.exe"
             ],

@@ -13,6 +13,7 @@
 #include "PyramidTTT.h"
 #include "UltimateTTT_Classes.h"
 #include "FourInARow_Classes.h"
+#include "WordTTT_Classes.h"
 
 using namespace std;
 
@@ -33,8 +34,9 @@ int main() {
         cout << "10. Pyramid Tic Tac Toe\n";
         cout << "11. Four-in-a-row\n";
         cout << "12. Ultimate Tic Tac Toe (Bonus)\n";
-
-        cout << "0. Exit\nChoose: ";
+        cout << "13. Word Tic Tac Toe\n";
+        cout << "0. Exit\n";
+        cout << "Choose: ";
         
         int ch;
         cin >> ch;
@@ -47,7 +49,11 @@ int main() {
             Player<char>** players = ui->setup_players();
             GameManager<char> gm(board, players, ui);
             gm.run();
-            delete board; delete players[0]; delete players[1]; delete[] players;
+            delete board; 
+            delete players[0]; 
+            delete players[1]; 
+            delete[] players;
+            delete ui;
         }
 
         else if (ch == 2) {
@@ -56,7 +62,11 @@ int main() {
             Player<int>** players = ui->setup_players();
             GameManager<int> gm(board, players, ui);
             gm.run();
-            delete board; delete players[0]; delete players[1]; delete[] players;
+            delete board; 
+            delete players[0]; 
+            delete players[1]; 
+            delete[] players;
+            delete ui;
         }
 
         else if (ch == 3) {
@@ -65,7 +75,11 @@ int main() {
             Player<char>** players = ui->setup_players();
             GameManager<char> gm(board, players, ui);
             gm.run();
-            delete board; delete players[0]; delete players[1]; delete[] players;
+            delete board; 
+            delete players[0]; 
+            delete players[1]; 
+            delete[] players;
+            delete ui;
         }
 
         else if (ch == 4) {
@@ -74,7 +88,11 @@ int main() {
             Player<char>** players = ui->setup_players();
             GameManager<char> gm(board, players, ui);
             gm.run();
-            delete board; delete players[0]; delete players[1]; delete[] players;
+            delete board; 
+            delete players[0]; 
+            delete players[1]; 
+            delete[] players;
+            delete ui;
         }
 
         else if (ch == 5) {
@@ -83,7 +101,11 @@ int main() {
             Player<char>** players = ui->setup_players();
             GameManager<char> gm(board, players, ui);
             gm.run();
-            delete board; delete players[0]; delete players[1]; delete[] players;
+            delete board; 
+            delete players[0]; 
+            delete players[1]; 
+            delete[] players;
+            delete ui;
         }
 
         else if (ch == 6) {
@@ -92,7 +114,11 @@ int main() {
             Player<char>** players = ui->setup_players();
             GameManager<char> gm(board, players, ui);
             gm.run();
-            delete board; delete players[0]; delete players[1]; delete[] players;
+            delete board; 
+            delete players[0]; 
+            delete players[1]; 
+            delete[] players;
+            delete ui;
         }
 
         else if (ch == 7) {
@@ -101,7 +127,11 @@ int main() {
             Player<char>** players = ui->setup_players();
             GameManager<char> gm(board, players, ui);
             gm.run();
-            delete board; delete players[0]; delete players[1]; delete[] players;
+            delete board; 
+            delete players[0]; 
+            delete players[1]; 
+            delete[] players;
+            delete ui;
         }
 
         else if (ch == 8) {
@@ -110,7 +140,11 @@ int main() {
             Player<char>** players = ui->setup_players();
             GameManager<char> gm(board, players, ui);
             gm.run();
-            delete board; delete players[0]; delete players[1]; delete[] players;
+            delete board; 
+            delete players[0]; 
+            delete players[1]; 
+            delete[] players;
+            delete ui;
         }
 
         else if (ch == 9) {
@@ -119,7 +153,11 @@ int main() {
             Player<char>** players = ui->setup_players();
             GameManager<char> gm(board, players, ui);
             gm.run();
-            delete board; delete players[0]; delete players[1]; delete[] players;
+            delete board; 
+            delete players[0]; 
+            delete players[1]; 
+            delete[] players;
+            delete ui;
         }
 
         else if (ch == 10) {
@@ -128,8 +166,13 @@ int main() {
             Player<char>** players = ui->setup_players();
             GameManager<char> gm(board, players, ui);
             gm.run();
-            delete board; delete players[0]; delete players[1]; delete[] players;
+            delete board; 
+            delete players[0]; 
+            delete players[1]; 
+            delete[] players;
+            delete ui;
         }
+
         else if (ch == 11) {
             UI<char>* ui = new FourInARow_UI();
             Board<char>* board = new FourInARow_Board();
@@ -140,9 +183,8 @@ int main() {
             delete players[0];
             delete players[1];
             delete[] players;
+            delete ui;
         }
-
-
 
         else if (ch == 12) {
             UI<char>* ui = new UltimateTTT_UI();
@@ -150,15 +192,25 @@ int main() {
             Player<char>** players = ui->setup_players();
             GameManager<char> gm(board, players, ui);
             gm.run();
-
             delete board;
             delete players[0];
             delete players[1];
             delete[] players;
+            delete ui;
         }
-      
 
-
+        else if (ch == 13) {
+            UI<char>* ui = new WordTTT_UI(); 
+            Board<char>* board = new WordTTT_Board();
+            Player<char>** players = ui->setup_players();
+            GameManager<char> gm(board, players, ui);
+            gm.run();
+            delete board;
+            delete players[0];
+            delete players[1];
+            delete[] players;
+            delete ui;
+        }
 
         else {
             cout << "Invalid choice. Try again.\n";
