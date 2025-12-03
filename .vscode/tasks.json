@@ -22,8 +22,8 @@
                  "FourInARow_Classes.cpp",
                  "UltimateTTT_Classes.cpp",
                  "WordTTT_Classes.cpp",
-                 
-                "-o",
+                 "MemoryTTT_Classes.cpp",
+                 "-o",
                 "game.exe"
             ],
             "problemMatcher": "$gcc",

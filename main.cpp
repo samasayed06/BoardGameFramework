@@ -1,4 +1,5 @@
-﻿#include <iostream>
+﻿#include <windows.h>
+#include <iostream>
 #include <ctime>
 #include "BoardGame_Classes.h"
 #include "XO_Classes.h"
@@ -14,10 +15,12 @@
 #include "UltimateTTT_Classes.h"
 #include "FourInARow_Classes.h"
 #include "WordTTT_Classes.h"
+#include "MemoryTTT_Classes.h"
 
 using namespace std;
 
 int main() {
+    SetConsoleOutputCP(CP_UTF8);
     srand(time(0));
 
     while (true) {
@@ -35,6 +38,7 @@ int main() {
         cout << "11. Four-in-a-row\n";
         cout << "12. Ultimate Tic Tac Toe (Bonus)\n";
         cout << "13. Word Tic Tac Toe\n";
+        cout << "14. Memory Tic Tac Toe\n";
         cout << "0. Exit\n";
         cout << "Choose: ";
         
@@ -202,6 +206,19 @@ int main() {
         else if (ch == 13) {
             UI<char>* ui = new WordTTT_UI(); 
             Board<char>* board = new WordTTT_Board();
+            Player<char>** players = ui->setup_players();
+            GameManager<char> gm(board, players, ui);
+            gm.run();
+            delete board;
+            delete players[0];
+            delete players[1];
+            delete[] players;
+            delete ui;
+        }
+
+        else if (ch == 14) {
+            UI<char>* ui = new MemoryTTT_UI();
+            Board<char>* board = new MemoryTTT_Board();
             Player<char>** players = ui->setup_players();
             GameManager<char> gm(board, players, ui);
             gm.run();
